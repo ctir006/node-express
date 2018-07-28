@@ -16,6 +16,11 @@ app.use(express.static(__dirname + '/public'));
 
 app.use(bodyParser.json());
 
+const dishRouter = require('./routes/dishRouter');
+
+app.use('/dishes', dishRouter);
+
+/*
 app.all('/dishes', (req, res, next) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
@@ -56,7 +61,7 @@ app.put('/dishes/:dishId', (req, res, next) => {
 
 app.delete('/dishes/:dishId', (req, res, next) => {
     res.end('Deleting dish: ' + req.params.dishId);
-});
+});*/
 
 
 const server = http.createServer(app);
